@@ -41,7 +41,7 @@ int main(){
             Listar(estoque, quantidadeAtual);
             break;
             case 3:
-            //Relatorio(estoque, quantidadeAtual);
+            Relatorio(estoque, quantidadeAtual);
             break;
             case 4:
             printf("Saindo do programa...\n");
@@ -113,3 +113,15 @@ void Listar(struct Produto lista[], int quantidadeAtual){
     printf("================================================\n");
     printf("Total de produtos: %d\n", quantidadeAtual);
 }
+
+void Relatorio(struct Produto lista[], int quantidadeAtual){
+    float valorTotal = 0.0f;
+    
+    for(int i = 0; i < quantidadeAtual; i++){
+        valorTotal += lista[i].precoUnitario * lista[i].quantidadeEstoque;
+    }
+    
+    printf("\n--- RELATORIO DE VALOR TOTAL DOS PRODUTOS ---\n");
+    printf("Valor total dos produtos em estoque: R$ %.2f\n", valorTotal);
+
+} 
