@@ -38,7 +38,7 @@ int main(){
             Cadastrar(estoque, &quantidadeAtual);
             break;
             case 2:
-            //Listar(estoque, quantidadeAtual);
+            Listar(estoque, quantidadeAtual);
             break;
             case 3:
             //Relatorio(estoque, quantidadeAtual);
@@ -87,6 +87,29 @@ void Cadastrar(struct Produto lista[], int *quantidadeAtual){
 
     (*quantidadeAtual)++;
     printf("Produto cadastrado com sucesso!\n");
+    
+}
 
-
+void Listar(struct Produto lista[], int quantidadeAtual){
+    printf("\n--- LISTA DE PRODUTOS ---\n");
+    
+    if(quantidadeAtual == 0){
+        printf("Nenhum produto cadastrado.\n");
+        return;
+    }
+    
+    printf("================================================\n");
+    printf("ID  | NOME                 | PRECO    | ESTOQUE\n");
+    printf("================================================\n");
+    
+    for(int i = 0; i < quantidadeAtual; i++){
+        printf("%-3d | %-20s | R$%-6.2f | %-7d\n",
+               lista[i].id,
+               lista[i].nome,
+               lista[i].precoUnitario,
+               lista[i].quantidadeEstoque);
+    }
+    
+    printf("================================================\n");
+    printf("Total de produtos: %d\n", quantidadeAtual);
 }
